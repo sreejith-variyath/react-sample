@@ -1,5 +1,11 @@
 import {combineReducers} from 'redux';
-import { routerReducer } from 'react-router-redux';
 import prospect  from './prospect';
-const rootReducer = combineReducers({prospect,routing:routerReducer});
+const rootReducer = combineReducers(
+	{"prospectList":prospect
+		//routing:routerReducer
+	});
+// required store shaping change
+/*
+  "prospectList":prospect
+*/
 export default rootReducer; 

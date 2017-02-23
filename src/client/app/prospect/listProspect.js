@@ -1,7 +1,7 @@
 var React = require('react');
 import { bindActionCreators } from 'redux';
 import {connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreator';
+import {fetchProspect, fetchProspectSuccess}from '../actions/actionCreator';
 import Job from './Job';
 
 function mapStateToProps(state){
@@ -10,18 +10,32 @@ function mapStateToProps(state){
 	}
 }
 
-function dispatchToProps(dispatch){
+/*function dispatchToProps(dispatch){
 	return bindActionCreators(actionCreators,dispatch);
-}
+}*/
 
+const actionsToProps = (dispatch) => {
+	return {fetchProspects:() => {
+		    dispatch(fetchProspect()).then((response) => {
+		        dispatch(fetchProspectSuccess(response.payload.data.job));
+            });
+		}
+	}
+}	
 
 var ListProspect = React.createClass({
+  componentWillMount() {
+  	console.log("Inside ListProspects");
+    this.props.fetchProspects();
+  },
 	render:function (){
 		//(<div><pre> {JSON.stringify(this.props.prospect,'null','')}}</pre> </div>);
 		console.log("props from listProspect "+this.props.prospect);
-	return (<table className="proList"><tbody><tr><th>Name</th><th>Status</th><th>view</th><th>Progress</th></tr>{this.props.prospect.map((prospect,i) => <Job {... this.props} key={i} i={i} prospect={prospect} />)}</tbody></table>);
+	return (<table className="proList"><tbody><tr><th>Name</th><th>Status</th><th>view
+		</th><th>Progress</th></tr>{this.props.prospect.prospectList.posts.map((prospect,i) => 
+			<Job {... this.props} key={i} i={i} prospect={prospect} />)}</tbody></table>);
 	
   }
 });
-export const ProspectList=connect (mapStateToProps,dispatchToProps)(ListProspect);
+export const ProspectList=connect(mapStateToProps,actionsToProps)(ListProspect);
 export default  ProspectList;
