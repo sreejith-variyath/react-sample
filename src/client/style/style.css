@@ -76,6 +76,8 @@
     width: 100%;
     text-align: center;
     color: #E6C01E;
+    position: fixed;
+    bottom:0;
 }
 .footerStyle span{
     margin-top: 10px;

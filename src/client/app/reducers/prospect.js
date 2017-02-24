@@ -22,7 +22,7 @@ const INITIAL_STATE = { prospectList: {posts: [], error:null, loading: false},  
  			let temp = JSON.parse({...action.payload.config}.data);
  			temp = {...temp, job:{...temp.job, id:action.payload.data.job_id}}
  			console.log('success json data', temp);
- 			return { ...state, prospectList: {posts:[...state.prospectList.posts,temp], error: null, loading: false} }; 
+ 			return { ...state, prospectList: {posts:[...state.prospectList.posts,temp.job], error: null, loading: false} }; 
  			break;
  		case DELETE_PROSPECT:
 	 		console.log("Deleting prospect" , state , "action ",action.id);

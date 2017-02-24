@@ -16,7 +16,7 @@ var NavBar= React.createClass({
 			    	<Row>
 			    	 <ul className="menu-ul">
 			            <Col xs="1" sm="1" md="1" lg="1">
-			              <li className="menu-li"><Link to="/prospect">Prospect</Link></li>
+			              <li className="menu-li"><Link to="/prospect">Collection</Link></li>
 			            </Col>
 			            <Col xs="1" sm="1" md="1" lg="1">
 			              <li className="menu-li"><Link to="/collection">Collection</Link></li>

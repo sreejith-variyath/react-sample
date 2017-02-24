@@ -19,7 +19,7 @@ const icontentCollector=(
     <Route path="/" component={App}>
 	    <IndexRoute component={ProspectList}/>
 	    <Route path="/prospect" component={ProspectList}/>
-	    <Route path="/collection" component={ProspectForm}/>
+	    <Route path="/collection" component={Collection}/>
     </Route>
    </Router>
   </Provider>

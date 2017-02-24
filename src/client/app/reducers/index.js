@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import prospect  from './prospect';
 const rootReducer = combineReducers(
-	{"prospectList":prospect
+	{prospect
 		//routing:routerReducer
 	});
 // required store shaping change

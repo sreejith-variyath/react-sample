@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import {connect } from 'react-redux';
 import {createProspect,createProspectSuccess} from '../actions/actionCreator';
+import {Button} from 'react-bootstrap';
 
 const actionsToProps = (dispatch) => {
 	return {createProspect: (values) => { 
@@ -58,27 +59,28 @@ var  ProspectForm = React.createClass({
 	render:function(){
 		return( 
 		<form>
-			<label>Name</label>
+			<label>Name : </label>
         	<input type="text" name="prospectName" value={this.state.prospectName} onChange={this.handleOnchange} />
-        	<label>InputConnector</label>
+        	<p><label>InputConnector : </label>
 	        	<select name="InputRepo" value={this.state.InputRepo} onChange={this.handleOnchange} >
 	        	 <option value="select" selected='true'>select</option>
 	        	 <option value="InPutConnector">InPutConnector</option>
 	        	</select>
-	        <label>OutPutConnector</label>
+	        <label>OutPutConnector : </label>
 	        	<select name="OutPutRepo" value={this.state.OutPutRepo} onChange={this.handleOnchange} >
 	        	 <option value="select" selected='true'>select</option>
 	        	 <option value="iDNAOutputConnector">iDNAOutputConnector</option>
 	        	 </select>
-        	<label>DocumentPath</label>
+	        </p>	 
+        	<label>DocumentPath : </label>
         	<input type="text" name="filePath" value={this.state.filePath} onChange={this.handleOnchange} />
-        	<label>Frequency</label>
+        	<label>Frequency : </label>
 	        	<select name="scanFrequency" value={this.state.scanFrequency} onChange={this.handleOnchange} >
 	        	 <option value="select" selected='true'>select</option>
 	        	 <option value="scan once">scan once</option>
 	        	 </select>
-      	 <input type="button" onClick={this.handleSubmit} value="Submit" />
-      	</form>);
+	        	  <Button onClick={this.handleSubmit} >Create</Button> 
+	   	</form>);
 	}
 		
 });

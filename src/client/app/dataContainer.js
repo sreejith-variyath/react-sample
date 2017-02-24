@@ -1,16 +1,15 @@
 var React = require('react');
-//import '../../../node_modules/elemental/less/elemental.less'
-//import { Row, Col } from 'elemental'
 var contentDiv = {
   height: '100%',
   width: '90%',
+  overflow:'auto',
   backgroundColor: '#f2f2f2',
   float: 'left',
 
 };
 var DataContainer= React.createClass({
 	render:function (){
-	return (<div style={contentDiv}>     {this.props.content}   </div>);
+	return (<div style={contentDiv}> <div name="popup"></div>    {this.props.content}   </div>);
   }
 });
 

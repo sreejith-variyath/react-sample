@@ -1,10 +1,11 @@
 import React from 'react';
 import {deleteProspect,deleteProspectSuccess} from '../actions/actionCreator';
+import {ProgressBar} from 'react-bootstrap';
 import {connect } from 'react-redux';
+import {Button,Glyphicon} from 'react-bootstrap';
 const actionsToProps = (dispatch) => {
 	return {deleteProspect: (jobId) => { 
-		 console.log("before delete Prospect ",jobId);
-		    	dispatch(deleteProspect(jobId)).then((response) => {
+		   	dispatch(deleteProspect(jobId)).then((response) => {
 		    		dispatch(deleteProspectSuccess(jobId))
 				});
 	        }
@@ -14,17 +15,16 @@ const actionsToProps = (dispatch) => {
 const Job=React.createClass({
 
 	delete : function(item){
-const parameterValue = item.target.value;
-alert("prospect to delete",parameterValue);
-this.props.deleteProspect(parameterValue);
+		console.log(item);
+		this.props.deleteProspect(item);
 	},
 	render(){
 		return(<tr>
 					<td>{this.props.prospect.description}</td>
 					<td>running</td>
 					<td>Info</td>
-					<td>10</td>
-					<td><button value={this.props.prospect.id} onClick={this.delete}/></td>
+					<td><ProgressBar active now={45} /></td>
+					<td> <Button onClick={()=>{this.delete(this.props.prospect.id)}}><Glyphicon glyph="Trash" /></Button> </td>
 				</tr>);
 	}
 })

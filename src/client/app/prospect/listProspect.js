@@ -2,6 +2,8 @@ var React = require('react');
 import { bindActionCreators } from 'redux';
 import {connect } from 'react-redux';
 import {fetchProspect, fetchProspectSuccess}from '../actions/actionCreator';
+import ProspectFormModel from './ProspectFormModel';
+
 import Job from './Job';
 
 function mapStateToProps(state){
@@ -31,9 +33,9 @@ var ListProspect = React.createClass({
 	render:function (){
 		//(<div><pre> {JSON.stringify(this.props.prospect,'null','')}}</pre> </div>);
 		console.log("props from listProspect "+this.props.prospect);
-	return (<table className="proList"><tbody><tr><th>Name</th><th>Status</th><th>view
-		</th><th>Progress</th></tr>{this.props.prospect.prospectList.posts.map((prospect,i) => 
-			<Job {... this.props} key={i} i={i} prospect={prospect} />)}</tbody></table>);
+	return (<div style={{overflow: "auto",paddingBottom: "100px"}}><ProspectFormModel/><table className="proList"><tbody><tr><th>Name</th><th>Status</th><th>view
+		</th><th>Progress</th><th>Action</th></tr>{this.props.prospect.prospectList.posts.map((prospect,i) => 
+			<Job {... this.props} key={i} i={i} prospect={prospect} />)}</tbody></table></div>);
 	
   }
 });
