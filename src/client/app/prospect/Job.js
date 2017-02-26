@@ -2,7 +2,7 @@ import React from 'react';
 import {deleteProspect,deleteProspectSuccess} from '../actions/actionCreator';
 import {ProgressBar} from 'react-bootstrap';
 import {connect } from 'react-redux';
-import {Button,Glyphicon} from 'react-bootstrap';
+import {Button,Glyphicon,ButtonGroup} from 'react-bootstrap';
 const actionsToProps = (dispatch) => {
 	return {deleteProspect: (jobId) => { 
 		   	dispatch(deleteProspect(jobId)).then((response) => {
@@ -21,11 +21,15 @@ const Job=React.createClass({
 	render(){
 		return(<tr>
 					<td>{this.props.prospect.description}</td>
-					<td>running</td>
-					<td>Info</td>
-					<td><ProgressBar active now={45} /></td>
-					<td> <Button onClick={()=>{this.delete(this.props.prospect.id)}}><Glyphicon glyph="Trash" /></Button> </td>
-				</tr>);
+					<td>Running</td>
+					<td><ProgressBar active now={45} label={'45%'} /></td>
+					<td>
+					 <ButtonGroup>
+					    <Button><Glyphicon glyph="info-sign" /></Button> 
+					    <Button onClick={()=>{this.delete(this.props.prospect.id)}}><Glyphicon glyph="Trash" /></Button> 
+					  </ButtonGroup> 
+					  </td>
+					</tr>);
 	}
 })
 

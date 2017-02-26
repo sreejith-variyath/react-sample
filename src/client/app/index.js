@@ -1,18 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
-import NavBar from "./menuBar";
+import RightNavigationBar from "./rightNavigationBar";
+import '../style/bootstrap-override.css';
 import Header from "./Header";
 import DataContainer from "./dataContainer";
 import FooterDiv from "./footerContainer";
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 
-var containerDiv = {
-    backgroundColor: '#b3d1ff',
-    top: 40,
-    height: '80%',
-    width: '100%',
-    zIndex: '100',
-  margins:0,
+var dataContainer = {
+    padding:'19px'
 };
 
 var appContainer = {
@@ -22,11 +21,17 @@ var appContainer = {
 var App = React.createClass( {
   render: function() { 
     return (
-    <div style={appContainer}> 
+    <Grid fluid={true}> 
       <Header />
-      <div style={containerDiv}><NavBar /><DataContainer content={this.props.children}/></div>
-      <FooterDiv />
-    </div>) ;
+      <Row>
+        <Col md={2} > <RightNavigationBar />  </Col>  {/* There is a 15px left and right padding for col */} 
+        <Col md={10} style={dataContainer}> <DataContainer content={this.props.children}/> </Col>
+        <Col md={9}> </Col>  
+      </Row>
+      {/*<Row> <Col md={12}><FooterDiv /></Col></Row>*/}
+      {/*<RightNavigationBar /><div style={containerDiv}><NavBar /><DataContainer content={this.props.children}/></div> */}
+      
+    </Grid>) ;
   }
 });
 

@@ -1,8 +1,7 @@
-console.log("Hello Before");
-
 import React from 'react';
 import App from "./index";
 import '../style/style.css';
+import '../style/menu.css';
 import {render} from 'react-dom';
 import ProspectList from "./prospect/listProspect";
 import Collection from "./collection";
@@ -10,7 +9,6 @@ import ProspectForm from "./prospect/ProspectForm";
 import { Router, Route, IndexRoute,browserHistory } from 'react-router';
 import configureStore from './store/store';
 import { Provider } from 'react-redux';
-console.log("Hello");
 const store = configureStore();
 
 const icontentCollector=(

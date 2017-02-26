@@ -29,8 +29,7 @@ const ProspectFormModel = React.createClass({
     );
 
     return (
-      <div>
-        <Button bsStyle="primary" bsSize="large" onClick={this.open}>New</Button>
+      <div> <Button bsStyle="primary" bsSize="small" onClick={this.open}> <span className="fa fa-plus-circle" ></span>Add Collection</Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
@@ -39,9 +38,6 @@ const ProspectFormModel = React.createClass({
           <Modal.Body>
            <CreateProspectForm />
                  </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.handleSubmit} >Create</Button>  <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
         </Modal>
       </div>
     );

@@ -9,14 +9,12 @@ import { INITIAL_STATE } from '../reducers/prospect';
 
 //create an object for default data
 
-console.log("Inside Store");
 
 export default function configureStore(initialState) {
   const finalCreateStore = compose(
     applyMiddleware(promise),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )(createStore);
-  console.log(initialState);
   const store = finalCreateStore(reducer, initialState);
   return store;
 }

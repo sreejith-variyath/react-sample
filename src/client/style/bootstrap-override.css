@@ -1,0 +1,23 @@
+.shadow {
+  boxShadow: 0 0 7px black;
+}
+
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.container-fluid {
+    padding-right: 0px;
+     padding-left: 0px; 
+ } 
+ .table {
+font-size: 14px;
+ }
+ .progress {
+ 	margin-bottom: 0px;
+ }
+ div[class*='col-md-'] {
+ 	padding-right: 0px;
+    padding-left: 0px;
+ }
