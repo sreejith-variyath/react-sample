@@ -27,15 +27,6 @@ var RightNavigationBar= React.createClass({
                 </li>
                 <ul className="sub-menu collapse" id="products">
                     <li className="active"><Link to="/prospect">Collections List</Link></li>
-                    <li><a href="#">General</a></li>
-                    <li><a href="#">Buttons</a></li>
-                    <li><a href="#">Tabs & Accordions</a></li>
-                    <li><a href="#">Typography</a></li>
-                    <li><a href="#">FontAwesome</a></li>
-                    <li><a href="#">Slider</a></li>
-                    <li><a href="#">Panels</a></li>
-                    <li><a href="#">Widgets</a></li>
-                    <li><a href="#">Bootstrap Model</a></li>
                 </ul>
                 <li data-toggle="collapse" data-target="#service" className="collapsed">
                   <a href="#"><i className="fa fa-globe fa-lg"></i> Services <span className="arrow"></span></a>
@@ -46,7 +37,7 @@ var RightNavigationBar= React.createClass({
                   <li>New Service 3</li>
                 </ul>
                 <li data-toggle="collapse" data-target="#new" className="collapsed">
-                  <a href="#"><i className="fa fa-car fa-lg"></i> New <span className="arrow"></span></a>
+                  <a href="#"><i className="fa fa-car fa-lg"></i> Reports <span className="arrow"></span></a>
                 </li>
                 <ul className="sub-menu collapse" id="new">
                   <li>New New 1</li>

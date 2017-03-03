@@ -19,7 +19,7 @@ function mapStateToProps(state){
 
 const actionsToProps = (dispatch) => {
 	return {fetchProspects:() => {
-		    dispatch(fetchProspect()).then((response) => {
+		    dispatch(fetchProspect()).then((response) => { console.log("before fetch sucess",response)
 		        dispatch(fetchProspectSuccess(response.payload.data.job));
             });
 		}
@@ -29,11 +29,13 @@ const actionsToProps = (dispatch) => {
 var ListProspect = React.createClass({
   componentWillMount() {
   	console.log("Inside ListProspects");
-    this.props.fetchProspects();
+  	this.props.fetchProspects();
+  	setInterval(this.props.fetchProspects, 300000);
+    ;
   },
 	render:function (){
 		//(<div><pre> {JSON.stringify(this.props.prospect,'null','')}}</pre> </div>);
-		console.log("props from listProspect "+this.props.prospect);
+		console.log("props from listProspect ",this.props.prospect);
 		
 	return (
 		

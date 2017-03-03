@@ -70,7 +70,8 @@ font-weight:400;
         text-align: right;
     margin-top: 8px;
   }
- .dataContainerHeader {box-shadow: black 0px 0px 2px;
+ .dataContainerHeader {
+   --box-shadow: black 0px 0px 2px;
     height: 7%;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -78,7 +79,7 @@ font-weight:400;
 
 .createForm td {
    text-align: left;
-   border: 1px solid rgba(154, 159, 165, 1);
+   border: 0px solid rgba(154, 159, 165, 1);
    padding: 13px;
 }
 

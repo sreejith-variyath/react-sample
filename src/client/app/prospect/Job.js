@@ -19,10 +19,22 @@ const Job=React.createClass({
 		this.props.deleteProspect(item);
 	},
 	render(){
+		let documents_processed = this.props.prospect.jobstatus.documents_processed;
+		let documents_in_queue = this.props.prospect.jobstatus.documents_in_queue;
+		let percentage_progress= (documents_processed/documents_in_queue)*100;
+		console.log( documents_processed, documents_in_queue, percentage_progress);
 		return(<tr>
 					<td>{this.props.prospect.description}</td>
-					<td>Running</td>
-					<td><ProgressBar active now={45} label={'45%'} /></td>
+					<td>{this.props.prospect.jobstatus.status}</td>
+					<td>
+					{this.props.prospect.jobstatus.status != 'not yet run' &&
+					 this.props.prospect.jobstatus.status != 'starting up' && 
+					 this.props.prospect.jobstatus.status != 'restarting' && 
+					 this.props.prospect.jobstatus.status != 'running no connector' && 
+					 <ProgressBar active now={percentage_progress} label={percentage_progress+'%'} />} 
+
+					
+					</td>
 					<td>
 					 <ButtonGroup>
 					    <Button><Glyphicon glyph="info-sign" /></Button> 

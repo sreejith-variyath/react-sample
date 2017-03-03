@@ -20,7 +20,18 @@ const INITIAL_STATE = { prospectList: {posts: [], error:null, loading: false},  
  		case CREATE_PROSPECT_SUCCESS:
  			console.log("adding prospects success",action.payload);
  			let temp = JSON.parse({...action.payload.config}.data);
- 			temp = {...temp, job:{...temp.job, id:action.payload.data.job_id}}
+ 			let jobstatusDefault= {
+			"queue_exact": "true",
+			"documents_processed": "0",
+			"documents_in_queue": "0",
+			"end_time": null,
+			"status": "not yet run",
+			"documents_outstanding": "0",
+			"start_time": null,
+			"processed_exact": "true",
+			"outstanding_exact": "true",
+		}
+ 			temp = {...temp, job:{...temp.job, id:action.payload.data.job_id, jobstatus:jobstatusDefault}}
  			console.log('success json data', temp);
  			return { ...state, prospectList: {posts:[...state.prospectList.posts,temp.job], error: null, loading: false} }; 
  			break;

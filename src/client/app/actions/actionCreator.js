@@ -63,8 +63,7 @@ export function deleteProspectSuccess(jobid) {
 export function fetchProspect(){
 	const request = axios({
     method: 'get',
-    url: `http://localhost:8345/mcf-api-service/json/jobs`,
-    headers: ['Access-Control-Allow-Origin':'*']
+    url: `http://localhost:2222/mcfgateway/prospect`    
   });
   return {
     type: FETCH_PROSPECT,
